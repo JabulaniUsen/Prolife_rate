@@ -1,0 +1,55 @@
+git # Node.js
+node_modules/
+
+# Dependency directories
+/pnpm-debug.log
+/.pnp
+.pnp.js
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Ignore Vite build output
+/dist/
+
+# Ignore local development environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore Mac-specific files
+.DS_Store
+
+# Ignore Editor directories and files
+.vscode/
+.idea/
+
+# Ignore logs and binaries
+/logs/
+*.log
+*.log.*
+*.swp
+*.out
+*.pid
+
+# Ignore Yarn Integrity file
+.yarn-integrity
+
+# Ignore test coverage
+/coverage/
+
+# Ignore TypeScript build directory
+/tsconfig.tsbuildinfo
+
+# Ignore Vercel deployment files
+.vercel
+
+# Ignore build output for static sites
+/out/
