@@ -5,8 +5,6 @@ import Thursday from '../Components/Classes/Thursday';
 import Friday from '../Components/Classes/Friday';
 import Saturday from '../Components/Classes/Saturday';
 import Wednesday from '../Components/Classes/Wednesday';
-import {useMyClasses} from '../../../api/tutor/class/getMyClasses';
-import {UseSessionContext} from '../../../context/createContext/useSession';
 
 const tabs=['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 

@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch, useSelector } from 'react-redux';
-import { contactFormAction } from '../../../Redux/actions/Auth'
-import { toast } from 'react-toastify';
-import { clearContactFormStatus } from '../../../Redux/reducers/authReducer';
 
 function Form() {
   const [showModal, setShowModal] = useState(false);
@@ -13,60 +9,17 @@ function Form() {
   const [phone_number, setPhone_number] = useState('');
   const [message, setMessage] = useState('');
 
-  const dispatch = useDispatch();
-  const authSelector = useSelector((state) => state.authenticationSlice);
-
-  // useEffect(() => {
-  //   if (authSelector.contactFormActionStatus === 'loading') {
-  //     setIsloading(true);
-  //     return;
-  //   }
-  // }, [authSelector.contactFormActionStatus]);
-
-  useEffect(() => {
-    if (authSelector.contactFormActionStatus === 'failed') {
-      toast.error(`${authSelector.contactFormActionError}`);
-      dispatch (clearContactFormStatus())
-      return;
-    }
-  }, [authSelector.contactFormActionStatus]);
-
-  useEffect(() => {
-    if (authSelector.contactFormActionStatus === 'completed') {
-      // Show toast message
-      setTimeout(() => {
-        setShowModal(false);
-      }, 4000);
-      dispatch (clearContactFormStatus())
-    } 
-  }, [authSelector.contactFormActionStatus]);
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Simulate form submission processing
     setShowModal(true);
 
-    // Clear input fields after 2 seconds
     setTimeout(() => {
       setName('');
       setEmail('');
       setPhone_number('');
       setMessage('');
-
     }, 2000);
-
-    dispatch(
-      contactFormAction({
-        name: name,
-        email: email,
-        phone_number: phone_number,
-        message: message
-      })
-
-    );
   };
 
   return (

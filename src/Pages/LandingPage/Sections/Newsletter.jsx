@@ -3,51 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { newsletterAction } from '../../../Redux/actions/Auth';
-import { clearNewsletterStatus } from '../../../Redux/reducers/authReducer';
 
 
 const Newsletter = () => {
   const [email, setEmail] = useState('');
 
-  const dispatch = useDispatch();
-  const authSelector = useSelector((state) => state.authenticationSlice);
-
-  useEffect(() => {
-    if (authSelector.newsletterActionStatus === 'failed') {
-      toast.error(`${authSelector.newsletterActionError}`);
-      dispatch (clearNewsletterAction())
-      return;
-    }
-  }, [authSelector.newsletterActionStatus]);
-
-  useEffect(() => {
-    if (authSelector.newsletterActionStatus === 'completed') {
-      toast.success('Your email has been submitted!', {
-        position: 'top-right', // Set the position to 'top-right' or 'top-left'
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      dispatch (clearNewsletterAction())
-    } 
-  }, [authSelector.newsletterActionStatus]);
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(
-      newsletterAction({
-        email: email
-      })
-    );
-    // Reset the email input
-    setEmail('');
+   toast.success('Submitted')
   };
 
   return (

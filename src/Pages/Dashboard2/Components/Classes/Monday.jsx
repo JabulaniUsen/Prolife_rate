@@ -5,10 +5,6 @@ import noClass from '../../../../Assets/no-class.png'
 import classData from '../../Components/ScheduleClassData'
 import AddClassPopup from '../AddClassModal';
 import JoinClassModal from '../JoinClassModal';
-import { UseSessionContext } from '../../../../context/createContext/useSession';
-import { useMyClasses } from '../../../../api/tutor/class/getMyClasses';
-import {updateClass} from '../../../../api/tutor/class/updateClasses';
-import {createClasses} from '../../../../api/tutor/class/createClass';
 
 const Monday = () => {
     const [classdata, setClassdata] = useState(classData);
@@ -26,14 +22,6 @@ const Monday = () => {
         endTime: '',
         classid: '',
     });
-
-    const { session, updateSession } = useContext(UseSessionContext)
-    useEffect(() => {
-        useMyClasses().then((data) => {
-            setClassdata(data)
-        })
-    })
-  
 
     const handleJoinNow = () => {
         setShowJoinModal(true);

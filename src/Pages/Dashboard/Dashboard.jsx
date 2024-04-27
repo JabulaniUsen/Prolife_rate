@@ -32,7 +32,6 @@ import Reports from './Tabs/Reports';
 import Footer2 from '../../Components/Footer2';
 import { Link } from 'react-router-dom';
 import Notifications from './Components/Notification';
-import {UseSessionContext} from '../../context/createContext/useSession';
 
 // Tabs Component
 const Tabs = ({ tabs, setActiveTab, activeTab }) => {

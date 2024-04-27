@@ -1,20 +1,9 @@
 import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {getTutorProfile, findTutors} from '../../../Redux/actions/getters';
 import tei from '../Icons/totalEarnings.png';
 import ts from '../Icons/totalSessions.png';
 import cs from '../Icons/completedSessions.png';
 
 const Overview=() => {
-    const dispatch=useDispatch();
-    const tutorProfile=useSelector(state => state?.auth?.tutorProfile); // Update the selector
-    console.log(tutorProfile);
-    const tutorProfileStatus=useSelector(state => state?.auth?.tutorProfileStatus); // Assuming it's stored under auth slice
-
-    useEffect(() => {
-        dispatch(getTutorProfile());
-        dispatch(findTutors());
-    }, [dispatch]);
 
     return (
         <div className='poppins flex justify-between my-10'>

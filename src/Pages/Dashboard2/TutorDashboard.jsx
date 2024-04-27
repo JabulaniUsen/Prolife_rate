@@ -15,7 +15,6 @@ import setting from './Icons/settings.png';
 import user from '../Dashboard2/Icons/user.png'
 import menu from '../../Assets/menu.png'
 
-// Import Tab Components
 import Classes from './Tabs/Classes';
 import Home from './Tabs/Home';
 import Assignment from './Tabs/Assignment';
@@ -26,10 +25,7 @@ import Footer2 from '../../Components/Footer2';
 import { Link } from 'react-router-dom';
 import Transactions from './Tabs/Transactions';
 import WaitingList from './Components/WaitingList';
-import {TutorContext} from '../../context/createContext/useTutor';
-import {UseSessionContext} from '../../context/createContext/useSession';
 
-// Tabs Component
 const Tabs = ({ tabs, setActiveTab, activeTab }) => {
   return (
     <div className="tab-buttons flex flex-col gap-2 ">
@@ -57,24 +53,6 @@ const TutorDashboard = () => {
   const {session, Logout}=useContext(UseSessionContext)
   const location=useLocation();
   const [isloading, setIsLaoding]=useState(true);
-  const navigate  = useNavigate(); 
-
-  useEffect(() => {
-    setIsLaoding(true)
-    if(!session&&session.authentication.signin) {
-      navigate('/signin')
-      return
-    }
-    else if(session&&session.authentication.user_type!='tutor') {
-      navigate('/dashboard')
-    }
-    setIsLaoding(false)
-    
-  }, [navigate, session.authentication.signin ,session.authentication.user_type,session.authentication.signin, isloading]);
-  const toggleSidebar = () => {
-    setIsSidebarVisible(!isSidebarVisible)
-  }
-  
 
     const tabs = [
       {

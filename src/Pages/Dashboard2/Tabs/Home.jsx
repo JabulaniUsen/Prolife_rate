@@ -10,21 +10,10 @@ import WaitingRoom from '../Components/WaitingRoom';
 import Documents from '../Components/Documents';
 import Overview from '../Components/Overview';
 import WaitingList from '../Components/WaitingList';
-import {useTutorProfile} from '../../../api/getTutorProfile';
-import {TutorContext} from '../../../context/createContext/useTutor';
 
 
 
 function Home() {
-  const {tutor, setTutor}=useContext(TutorContext)
-  useEffect(() => {
-   (async () => {
-    localStorage.setItem('token',tutor.authentication.token)
-      const userProfile = await useTutorProfile()
-      console.log(userProfile)
-    }
-   )()
-  }, [])
   const [showWaitingList, setShowWaitingList]=useState(false)
 
   const handleSeeAllClick=() => {
