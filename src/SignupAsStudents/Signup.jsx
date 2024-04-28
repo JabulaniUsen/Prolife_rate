@@ -36,13 +36,13 @@ function Signup() {
       case 1:
         return <PersonalInfoTab onNext={nextTab} />;
       case 2:
-        return <AcademicDetails onNext={nextTab} />;
+        return <AcademicDetails onNext={nextTab} onBack={prevTab} />;
       case 3:
-        return <Preferences onNext={nextTab} />;
+        return <Preferences onNext={nextTab} onBack={prevTab}/>;
       case 4:
-        return <LearningGoals onNext={nextTab} />;
+        return <LearningGoals onNext={nextTab} onBack={prevTab}/>;
       case 5:
-        return <TermsConditions formData={formData} onSubmit={handleSubmit} />;
+        return <TermsConditions formData={formData} onBack={prevTab} onSubmit={handleSubmit} />;
       default:
         return null;
     }
