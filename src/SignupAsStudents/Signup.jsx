@@ -52,8 +52,8 @@ function Signup() {
     <div className='poppins'>
       <Header />
       <div className="tabs mt-8">
-        <h2 className='text-center lg:text-2xl font-bold'>Student Registration | Personal Information</h2>
-        <div className="flex justify-center my-10 text-sm">
+        <h2 className='text-center lg:text-2xl font-bold mb-10'>Student Registration | Personal Information</h2>
+        <div className="lg:flex hidden justify-center mb-10 text-sm">
           <button className={`${currentTab === 1 ? "active bg-[#1f70b2] text-white" : ""} w-[180px] border font-semibold border-gray-300 p-3 `} onClick={() => setCurrentTab(1)}>Personal Info</button>
           <button className={`${currentTab === 2 ? "active bg-[#1f70b2] text-white" : ""} w-[180px] border font-semibold border-gray-300 p-3 `} onClick={() => setCurrentTab(2)}>Academic Details</button>
           <button className={`${currentTab === 3 ? "active bg-[#1f70b2] text-white" : ""} w-[180px] border font-semibold border-gray-300 p-3 `} onClick={() => setCurrentTab(3)}>Preferences</button>
