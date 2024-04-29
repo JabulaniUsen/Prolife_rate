@@ -73,14 +73,14 @@ function Signin() {
 
               <div className="buttons m-auto">
                 <div className="flex items-center justify-center gap-2">
-                  <Link to='/forgotten_password'>
                     <button className='font-semibold text-white py-2 px-4 bg-[#186bad] hover:bg-[#0e3e66] rounded-lg'>
                       Login
                     </button>
-                  </Link>
                   <Link to='/register'><button className='font-semibold text-white py-2 px-4 bg-[#DE4B18] hover:bg-[#9b4326] rounded-lg'>Register</button></Link>
                 </div>
-                <button className='text-[#969696] underline mt-2 text-center'>Forgotten Password?</button>
+                <Link to='/forgotten_password'>
+                  <p className='text-[#969696] underline mt-2 text-center'>Forgotten Password?</p>
+                </Link>
               </div>
 
               <div className="signInWithSocials m-auto mt-10">

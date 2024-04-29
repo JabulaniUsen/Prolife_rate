@@ -21,6 +21,7 @@ import BuildProfile from './SignupAsTutor/BuildProfile';
 import CheckMail from './SignupAsStudents/CheckMail';
 import ForgottenPw from './SignupAsStudents/ForgottenPassword/ForgottenPw';
 import CheckEmail from './SignupAsStudents/ForgottenPassword/CheckEmail';
+import ChangePassword from './SignupAsStudents/ForgottenPassword/ChangePassword';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
               <Route path='/forgotten_password' element={<ForgottenPw/>} />
               <Route path='/verify_email' element={<CheckMail/>} />
               <Route path='/reset_password' element={<CheckEmail/>} />
+              <Route path='/change_password' element={<ChangePassword/>} />
               <Route path='/signin' element={<Signin />} />
               <Route path='/tutordetail' element={<TutorDetail />} />
               <Route path='/paymentpage' element={<PaymentPage />} />
