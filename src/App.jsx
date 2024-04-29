@@ -43,10 +43,9 @@ function App() {
               <Route path='/signin' element={<Signin />} />
               <Route path='/tutordetail' element={<TutorDetail />} />
               <Route path='/paymentpage' element={<PaymentPage />} />
-              <Route path='/dashboard' element={<Dashboard />} />
-              <Route path='/tutordashboard' element={<TutorDashboard />} />
+              {/* <Route path='/dashboard' element={<Dashboard />} /> */}
+              {/* <Route path='/tutordashboard' element={<TutorDashboard />} /> */}
               <Route path='/signupastutor' element={<Signup2 />} />
-              <Route path='/build_profile' element={<BuildProfile />} />
               <Route path='/subjects' element={<Subject />} />
               <Route path='/educational_information' element={<EducationalInfomation />} />
               <Route path='/room/:roomId' element={<Room />}></Route>
