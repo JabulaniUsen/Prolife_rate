@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -25,7 +26,9 @@ function TermsConditions({ formData, onSubmit, onBack }) {
         </div>
         <div className="flex justify-between">
           <button onClick={onBack} className='bg-[#1f70b2] text-white font-semibold px-6 py-2 rounded'>Back</button>
-          <button onClick={onSubmit || alert('Clicked')} className='bg-[#1f70b2] text-white font-semibold px-10 py-2 rounded'>I Agree</button>
+          <Link to='/verify_email'>
+            <button onClick={onSubmit} className='bg-[#1f70b2] text-white font-semibold px-10 py-2 rounded'>I Agree</button>
+          </Link>
         </div>
       </div>
       <ToastContainer />

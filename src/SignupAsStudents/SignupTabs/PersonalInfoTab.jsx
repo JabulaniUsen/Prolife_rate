@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 function PersonalInfoTab({ onNext }) {
   const [countryCodes, setCountryCodes] = useState([]);
-  
-    useEffect(() => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
     fetchCountryCodes();
   }, []);
 
@@ -30,24 +33,28 @@ function PersonalInfoTab({ onNext }) {
       countryCode: '+1',
       contactNumber: '',
       gender: '',
-      age: ''
+      password: ''
     },
     onSubmit: values => {
       onNext({ personalInfo: values });
     },
     validate: values => {
       const errors = {};
-      if (!values.firstName || !values.lastName || !values.email || !values.contactNumber || !values.gender || !values.age) {
+      if (!values.firstName || !values.lastName || !values.email || !values.contactNumber || !values.gender || !values.password) {
         errors.allFields = 'All fields are required';
       }
       return errors;
     }
   });
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className=''>
       <div className="lg:w-[80%] m-auto border flex flex-col border-gray-400 rounded-xl px-12 py-8 pb-[4rem] poppins">
-        <h2 className='text-center lg:w-[700px] m-auto mb-16'>Please provide your full name, email address, contact number, gender and age. Ensure that the information is accurate and up-to-date.</h2>
+        <h2 className='text-center lg:w-[700px] m-auto mb-16'>Please provide your full name, email address, contact number, gender and Password. Ensure that the information is accurate and up-to-date.</h2>
         <form className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-14 gap-x-10 '>
           <div className="flex flex-col">
             <label className='text-base font-semibold'>First Name:</label>
@@ -100,15 +107,21 @@ function PersonalInfoTab({ onNext }) {
           </div>
           
           <div className="flex flex-col">
-            <label className='text-base font-semibold'>Age:</label>
-            <div className="border border-gray-300 bg-white flex items-center rounded-lg">
+            <label className='text-base font-semibold'>Password:</label>
+            <div className="border border-gray-300 bg-white flex items-center rounded-lg pr-3">
               <input 
-                type='number' 
-                name="age" 
-                value={formik.values.age} 
+                type={showPassword ? 'text' : 'password'} 
+                name="password" 
+                value={formik.values.password} 
                 onChange={formik.handleChange} 
                 className='flex-1 p-3 focus:outline-none'
-                required placeholder='Enter your Age'
+                required 
+                placeholder='Enter your Password'
+              />
+              <FontAwesomeIcon 
+                icon={showPassword ? faEyeSlash : faEye} 
+                className="cursor-pointer" 
+                onClick={togglePasswordVisibility} 
               />
             </div>
           </div>

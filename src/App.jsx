@@ -13,13 +13,14 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import PaymentPage from './Pages/Payment/PaymentPage';
 import TutorDashboard from './Pages/Dashboard2/TutorDashboard';
 import Signup2 from './SignupAsTutor/Signup2';
-import VerificationAndIdentity from './SignupAsTutor/VerificationAndIdentification';
-import VerifyEmail from './SignupAsTutor/VerifyEmail';
 import Subject from './Pages/Subject/Subject';
 import EducationalInfomation from './SignupAsStudents/EducationalInfomation';
 import Room from './Pages/Dashboard2/Components/Room';
 import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
 import BuildProfile from './SignupAsTutor/BuildProfile';
+import CheckMail from './SignupAsStudents/CheckMail';
+import ForgottenPw from './SignupAsStudents/ForgottenPassword/ForgottenPw';
+import CheckEmail from './SignupAsStudents/ForgottenPassword/CheckEmail';
 
 function App() {
 
@@ -34,6 +35,9 @@ function App() {
               <Route path="/program" element={<Program />} />
               <Route path='/register' element={<Register />} />
               <Route path='/signup' element={<Signup />} />
+              <Route path='/forgotten_password' element={<ForgottenPw/>} />
+              <Route path='/verify_email' element={<CheckMail/>} />
+              <Route path='/reset_password' element={<CheckEmail/>} />
               <Route path='/signin' element={<Signin />} />
               <Route path='/tutordetail' element={<TutorDetail />} />
               <Route path='/paymentpage' element={<PaymentPage />} />
@@ -41,8 +45,6 @@ function App() {
               <Route path='/tutordashboard' element={<TutorDashboard />} />
               <Route path='/signupastutor' element={<Signup2 />} />
               <Route path='/build_profile' element={<BuildProfile />} />
-              <Route path='/verifyidentify' element={<VerificationAndIdentity />} />
-              <Route path='/verifyemail' element={<VerifyEmail />} />
               <Route path='/subjects' element={<Subject />} />
               <Route path='/educational_information' element={<EducationalInfomation />} />
               <Route path='/room/:roomId' element={<Room />}></Route>

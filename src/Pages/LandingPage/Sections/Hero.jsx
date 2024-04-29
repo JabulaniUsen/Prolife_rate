@@ -7,7 +7,6 @@ import sliderImage1 from '../../../Assets/slide1.png';
 import sliderImage2 from '../../../Assets/Slide2.png';
 import sliderImage3 from '../../../Assets/slide3.png';
 import bgImg1 from '../../../Assets/none.png';
-import bgImg2 from '../../../Assets/Ellipse.png';
 import Search from '../../../Components/Search';
 
 function Hero() {

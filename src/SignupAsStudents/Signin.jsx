@@ -8,6 +8,7 @@ import google from '../Assets/google.svg';
 import linkedin from '../Assets/linkedin.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 function Signin() {
   const [showPassword, setShowPassword] = useState(false);
@@ -72,8 +73,12 @@ function Signin() {
 
               <div className="buttons m-auto">
                 <div className="flex items-center justify-center gap-2">
-                  <button type="submit" className='font-semibold text-white py-2 px-4 bg-[#186bad] hover:bg-[#0e3e66] rounded-lg'>Login</button>
-                  <button className='font-semibold text-white py-2 px-4 bg-[#DE4B18] hover:bg-[#9b4326] rounded-lg'>Register</button>
+                  <Link to='/forgotten_password'>
+                    <button className='font-semibold text-white py-2 px-4 bg-[#186bad] hover:bg-[#0e3e66] rounded-lg'>
+                      Login
+                    </button>
+                  </Link>
+                  <Link to='/register'><button className='font-semibold text-white py-2 px-4 bg-[#DE4B18] hover:bg-[#9b4326] rounded-lg'>Register</button></Link>
                 </div>
                 <button className='text-[#969696] underline mt-2 text-center'>Forgotten Password?</button>
               </div>

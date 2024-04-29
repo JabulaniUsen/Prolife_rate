@@ -52,7 +52,7 @@ function Signup() {
     <div className='poppins'>
       <Header />
       <div className="tabs mt-8">
-        <h2 className='text-center lg:text-2xl font-bold mb-10'>Student Registration | Personal Information</h2>
+        <h2 className='text-center lg:text-2xl font-bold mb-10'>Student Registration</h2>
         <div className="lg:flex hidden justify-center mb-10 text-sm">
           <button className={`${currentTab === 1 ? "active bg-[#1f70b2] text-white" : ""} w-[180px] border font-semibold border-gray-300 p-3 `} onClick={() => setCurrentTab(1)} disabled>Personal Info</button>
           <button className={`${currentTab === 2 ? "active bg-[#1f70b2] text-white" : ""} w-[180px] border font-semibold border-gray-300 p-3 `} onClick={() => setCurrentTab(2)} disabled>Academic Details</button>
@@ -64,14 +64,14 @@ function Signup() {
       <div>
         {renderTabContent()}
       </div>
-      <div>
+      {/* <div>
         {currentTab !== 1 && (
           <button onClick={prevTab}>Back</button>
         )}
         {currentTab !== 5 && (
           <button onClick={() => nextTab()}>Next</button>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }
