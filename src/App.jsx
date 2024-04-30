@@ -17,7 +17,6 @@ import Subject from './Pages/Subject/Subject';
 import EducationalInfomation from './SignupAsStudents/EducationalInfomation';
 import Room from './Pages/Dashboard2/Components/Room';
 import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
-import BuildProfile from './SignupAsTutor/BuildProfile';
 import CheckMail from './SignupAsStudents/CheckMail';
 import ForgottenPw from './SignupAsStudents/ForgottenPassword/ForgottenPw';
 import CheckEmail from './SignupAsStudents/ForgottenPassword/CheckEmail';
