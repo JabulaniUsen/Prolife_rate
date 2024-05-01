@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import 'react-international-phone/style.css';
+import { PhoneInput } from 'react-international-phone';
 
 function PersonalInfoTab({ onNext }) {
   const [countryCodes, setCountryCodes] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
-
+  const [phone, setPhone] = useState('');
+  
   useEffect(() => {
     fetchCountryCodes();
   }, []);
@@ -79,7 +82,12 @@ function PersonalInfoTab({ onNext }) {
 
           <div className="flex flex-col">
             <label className='text-base font-semibold'>Contact Number:</label>
-            <div className="border border-gray-300 bg-white py-3 px-2 rounded-lg flex">
+            <PhoneInput
+            defaultCountry='ua'
+            value={formik.values.contactNumber}
+            onChange={formik.handleChange}
+            />
+          {/*   <div className="border border-gray-300 bg-white py-3 px-2 rounded-lg flex">
               <select 
                 value={formik.values.countryCode} 
                 onChange={formik.handleChange} 
@@ -91,7 +99,7 @@ function PersonalInfoTab({ onNext }) {
                 ))}
               </select>
               <input type="number" name="contactNumber" value={formik.values.contactNumber} onChange={formik.handleChange} className='flex-1 pl-2 focus:outline-none' required placeholder='Enter your Contact Number' />
-            </div>
+            </div> */}
           </div>
           
           <div className="flex flex-col">

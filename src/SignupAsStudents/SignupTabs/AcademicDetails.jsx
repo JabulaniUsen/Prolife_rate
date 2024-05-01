@@ -27,7 +27,7 @@ function AcademicDetails({ onNext, onBack }) {
       <div className="lg:w-[80%] m-auto border flex flex-col border-gray-400 rounded-xl px-12 py-8 pb-[4rem] poppins">
         <h2 className='text-center lg:w-[700px] m-auto mb-16'>
           Please enter the name of your school, college, or university, along with your grade or year of study. 
-          Select the subjects you need tutoring for and share your current GPA or grades.
+          Select the subjects you need tutoring for and share your current grades.
         </h2>
         <form onSubmit={formik.handleSubmit} className='grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-14 gap-x-10'>
           <div className="flex flex-col">
@@ -54,7 +54,7 @@ function AcademicDetails({ onNext, onBack }) {
           <div className="flex flex-col">
             <label className='text-base font-semibold'>Attendance Type:</label>
             <div className="border border-gray-300 bg-white p-3 rounded-lg">
-              <select name="attendanceType" value={formik.values.attendanceType} onChange={formik.handleChange} onBlur={formik.handleBlur} className='bg-[#e9e7e7] p-1 px-2 rounded-xl outline-none'>
+              <select name="attendanceType" value={formik.values.attendanceType} onChange={formik.handleChange} onBlur={formik.handleBlur} className='w-full outline-none'>
                 <option value="">Select</option>
                 <option value="fulltime">On-site</option>
                 <option value="parttime">Hybrid</option>
