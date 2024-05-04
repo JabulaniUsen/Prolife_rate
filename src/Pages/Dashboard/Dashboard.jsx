@@ -1,199 +1,101 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import menu from '../../Assets/menu.png';
-import user from '../../Assets/user.png';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faBell,
-  faCartShopping,
-  faChevronDown,
-  faMagnifyingGlass,
-  faRightFromBracket,
+  faChartBar,
+  faCog,
 } from '@fortawesome/free-solid-svg-icons';
-import logo from '../../Assets/logo2.png';
-import home from './Icons/home.png';
-import teacher from './Icons/teacher.png';
-import bank from './Icons/bank.png';
-import settings from './Icons/setting.png';
-import report from './Icons/chart-square.png';
-import messages from './Icons/ChatBubble.png';
-import refer from './Icons/refer.png';
-import support from './Icons/support.png';
-import setting from './Icons/settings.png';
+import StudentHeader from './Components/StudentHeader';
 
-// Import Tab Components
-import Classes from './Tabs/Classes';
-import Home from './Tabs/Home';
-import Assignment from './Tabs/Assignment';
-import Settings from './Tabs/Settings';
-import Messages from './Tabs/Messages';
-import PaymentInfo from './Tabs/PaymentInfo';
-import Reports from './Tabs/Reports';
-import Footer2 from '../../Components/Footer2';
-import { Link } from 'react-router-dom';
-import Notifications from './Components/Notification';
-
-// Tabs Component
-const Tabs = ({ tabs, setActiveTab, activeTab }) => {
-  return (
-    <div className="tab-buttons flex flex-col gap-2 ">
-      {tabs.map((tab, index) => (
-        <button
-          key={index}
-          onClick={() => setActiveTab(index)}
-          className={
-            index === activeTab
-              ? 'active'
-              : ' flex gap-2 items-center justify-start text-white bg-[#186bad] w-[170px] py-3 text-sm px-5 hover:bg-[#509cdb] rounded'
-          }
-        >
-          {tab.label}
-        </button>
-      ))}
-    </div>
-  );
+const LoadingAnimation = () => {
+  return <div>Loading...</div>;
 };
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState(0);
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
-  const {session, Logout}=useContext(UseSessionContext)
-  const navigator=useNavigate()
-  const [loading, setIsloading] = useState(true)
-  
-  useEffect(() => {
-    setIsloading(true)
-    if(!(session?.authentication?.signin)) {
-      // console.log('ji')
-      navigator("/signin")
-    }
-    if(session?.authenthentication?.user_type == "tutor") {
-      navigator("/tutordashboard")
-    }
-    setIsloading(false)
-  },[navigator,  loading, session?.authentication?.sigin, session?.authentication?.user_type])
-  const location = useLocation();
+  const [activeTab, setActiveTab] = useState(1);
+  const [selectedButton, setSelectedButton] = useState('Dashboard');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const toggleSidebar = () => {
-    setIsSidebarVisible(!isSidebarVisible);
+  const handleTabSwitch = (tabNumber) => {
+    setActiveTab(tabNumber);
   };
 
-  const navigateToAddStudent = () => {
-    // Set the active tab index to the index of the Settings tab
-    setActiveTab(tabs.findIndex(tab => tab.label === 'Settings and profile'));
-  };
+  const TabButton = ({ tabNumber, label, icon, subButtons }) => (
+    <div className="">
+      <button
+        className={`${
+          selectedButton === label
+            ? ' text-white bg-[#013A57] border-l-8 border-[#4E9352]'
+            : ' text-[#013A57]'
+        } py-3 hover:bg-[#013A57] hover:text-white text-black px-5 font-semibold w-[200px] flex items-center justify-between gap-2 focus:outline-none focus:shadow-outline`}
+        onClick={() => {
+          setSelectedButton(label);
+          setActiveTab(1); // Reset subtab to 1 when switching main tabs
+        }}
+      >
+        <div className="flex items-center gap-2">
+          <FontAwesomeIcon icon={icon} />
+          <span>{label}</span>
+        </div>
+      </button>
 
-  const tabs = [
-      {
-        label: 'Dashboard',
-        contentComponent: <Home/>,
-        img: home
-      },
-      {
-        label: 'My Classes',
-        contentComponent: <Classes />,
-        img: home
-      },
-      {
-          label: 'Home Work',
-          contentComponent: <Assignment />,
-          img: teacher
-      },
-      {
-          label: 'Payment Info',
-          contentComponent: <PaymentInfo />,
-          img: bank
-      },
-      {
-          label: 'Settings and profile',
-          contentComponent: <Settings />,
-          img: settings
-      },
-      {
-          label: 'Reports',
-          contentComponent: <Reports />,
-          img: report
-      },
-      {
-          label: 'Messages',
-          contentComponent: <Messages />,
-          img: messages
-      },
-      
-    ];
+      {selectedButton === label && (
+        <div className="top-full left-0 text-black ">
+          {subButtons.map((subButton) => (
+            <button
+              key={subButton.label}
+              className={`w-[190px] text-left flex ml-2 py-2 px-4 bg-white ${
+                activeTab === subButton.tabNumber
+                  ? 'bg-[#4E9352] text-white'
+                  : 'hover:bg-[#6ac26e3b]'
+              }`}
+              onClick={() => {
+                setIsLoading(true);
+                setTimeout(() => {
+                  setActiveTab(subButton.tabNumber);
+                  setIsLoading(false);
+                }, 1000);
+              }}
+            >
+              {isLoading && activeTab === subButton.tabNumber ? (
+                <LoadingAnimation />
+              ) : (
+                subButton.label
+              )}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 
   return (
-    !loading && <div className="">
-      <div className={`flex w-[20%] ${isSidebarVisible ? '' : 'sidebar-hidden'}`}>
-        <div
-          className={`sideBar bg-[#2977B5] flex flex-col items-center px-5 ${
-            isSidebarVisible ? '' : 'hidden'
-          }`}
-        >
-          <Link to='/'>
-            <div className="logo py-10 px-10">
-              <img src={logo} alt="" />
-            </div>
-          </Link>
-          <div className=" flex flex-col gap-2 my-20">
-            <Tabs tabs={tabs} setActiveTab={setActiveTab} />
+    <div className="">
+      <StudentHeader/>
+      <div className="flex overflow-hidden">
+        <div className="flex flex-col justify-between gap-[8rem] items-center w-1/5 p-4 py-10 bg-[#ebf8ff]">
+          <div className="flex flex-col gap-3">
+            <TabButton
+              label="Dashboard"
+              icon={faChartBar}
+              subButtons={[
+                { label: 'Overview', tabNumber: 1 },
+                { label: 'Operations', tabNumber: 2 },
+                { label: 'Finance', tabNumber: 3 },
+              ]}
+            />
           </div>
-
-          <div className="logout">
-            <button onClick={() => {
-              Logout('STUDENT')
-            }} className="flex gap-2 items-center justify-start text-white bg-[#186bad] w-[200px] py-3 text-sm px-5 hover: rounded">
-              <FontAwesomeIcon icon={faRightFromBracket} />
-              Logout
-            </button>
-          </div>
-
-          <div className="refer flex flex-col justify-center item-center my-20">
-            <img src={refer} alt="" />
-            <button className="bg-[#D9D9D9] py-2 px-4 rounded-full shadow">Refer your friend</button>
-          </div>
-
-          <div className="">
-            <button className="flex gap-2 items-center justify-start bg-[#ffffff] w-[200px] py-3 text-sm px-5 rounded-lg my-2 text-[#344054]">
-              <img src={support} alt="" />
-              Support
-            </button>
-            <button className="flex gap-2 items-center justify-start bg-[#ffffff] w-[200px] py-3 text-sm px-5 rounded-lg my-2 text-[#344054]">
-              <img src={setting} alt="" />
-              Settings
-            </button>
+          <div className="flex flex-col gap-3">
+            <TabButton label="Settings" icon={faCog} subButtons={[]} />
           </div>
         </div>
 
-        <div className="body lg:px-[20px]">
-          <div className={`header flex justify-between p-10 lg:p-5 lg:w-[1100px] bg-white items-center ${isSidebarVisible ? '' : 'sidebar-hidden'}`}>
-            <div className="menu" onClick={toggleSidebar}>
-              <img src={menu} className="cursor-pointer lg:hidden" alt="" />
-            </div>
-            <div className="div lg:w-[400px] w-[300px] lg:ml-[400px] ml-2 border rounded-xl flex">
-              <FontAwesomeIcon icon={faMagnifyingGlass} className="text-slate-400 mx-3 lg:py-2" />
-              <input type="text" placeholder="Search anything" />
-            </div>
-            {/* <div className="">
-            <button onClick={navigateToAddStudent} className="bg-[#186bad] py-3 px-6 text-white rounded-lg text-sm">+ Add Student</button>
-            </div> */}
-            <Notifications/>
-            {/* <FontAwesomeIcon icon={faCartShopping} className="text-2xl text-[#56606D]" /> */}
-            <div className="user flex items-center gap-2 mx-2">
-              <div className="border rounded-full border-[#dadada] p-5">
-                <img src="" alt="" />
-              </div>
-              <div className="">
-                <h2 className='studentName'>{session?.studentProfile?.profile?.first_name + " " + session?.studentProfile?.profile?.last_name}</h2>
-              </div>
-              {/* <FontAwesomeIcon icon={faChevronDown} /> */}
-            </div>
-          </div>
-          {tabs[activeTab].contentComponent}
+        <div className="flex-grow">
+          {isLoading && <LoadingAnimation />} {/* Show loading animation when isLoading is true */}
+          {activeTab === 1 && !isLoading && <p>Home</p>}
+          {activeTab === 2 && !isLoading && <p>Operations</p>}
+          {activeTab === 3 && !isLoading && <p>Finance</p>}
         </div>
-
       </div>
-        {/* <Footer2/> */}
     </div>
   );
 };

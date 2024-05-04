@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../Components/Header'
+import { Link } from 'react-router-dom'
 
 const CheckMail = () => {
   return (
@@ -12,7 +13,9 @@ const CheckMail = () => {
           <div className="terms-and-conditions lg:w-[900px] m-auto mb-8">
             <h5 className='lg:text-3xl text-center'>Your email has been successfully confirmed. You can now access your account.</h5>
           </div>
-          <button className='bg-[#1f70b2] text-white font-semibold px-10 py-2  max-w-[300px] rounded'>Proceed to Dashboard</button>
+          <Link to='/dashboard'>
+            <button className='bg-[#1f70b2] text-white font-semibold px-10 py-2  max-w-[300px] rounded'>Proceed to Dashboard</button>
+          </Link>
         </div>
       </div>
     </div>
