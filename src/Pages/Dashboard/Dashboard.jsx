@@ -5,10 +5,8 @@ import {
   faCog,
 } from '@fortawesome/free-solid-svg-icons';
 import StudentHeader from './Components/StudentHeader';
+import Loading from '../../Components/Loading';
 
-const LoadingAnimation = () => {
-  return <div>Loading...</div>;
-};
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -24,12 +22,12 @@ const Dashboard = () => {
       <button
         className={`${
           selectedButton === label
-            ? ' text-white bg-[#013A57] border-l-8 border-[#4E9352]'
+            ? ' text-white bg-[#1f70b2]'
             : ' text-[#013A57]'
         } py-3 hover:bg-[#013A57] hover:text-white text-black px-5 font-semibold w-[200px] flex items-center justify-between gap-2 focus:outline-none focus:shadow-outline`}
         onClick={() => {
           setSelectedButton(label);
-          setActiveTab(1); // Reset subtab to 1 when switching main tabs
+          setActiveTab(1); 
         }}
       >
         <div className="flex items-center gap-2">
@@ -43,10 +41,10 @@ const Dashboard = () => {
           {subButtons.map((subButton) => (
             <button
               key={subButton.label}
-              className={`w-[190px] text-left flex ml-2 py-2 px-4 bg-white ${
+              className={`w-[190px] text-left flex ml-2 py-2 px-4 bg-[#2290eb] text-white border border-[#48a3ee] ${
                 activeTab === subButton.tabNumber
-                  ? 'bg-[#4E9352] text-white'
-                  : 'hover:bg-[#6ac26e3b]'
+                  ? 'bg-[#1d7fcf]'
+                  : ''
               }`}
               onClick={() => {
                 setIsLoading(true);
@@ -56,11 +54,7 @@ const Dashboard = () => {
                 }, 1000);
               }}
             >
-              {isLoading && activeTab === subButton.tabNumber ? (
-                <LoadingAnimation />
-              ) : (
-                subButton.label
-              )}
+              {subButton.label}
             </button>
           ))}
         </div>
@@ -72,7 +66,7 @@ const Dashboard = () => {
     <div className="">
       <StudentHeader/>
       <div className="flex overflow-hidden">
-        <div className="flex flex-col justify-between gap-[8rem] items-center w-1/5 p-4 py-10 bg-[#ebf8ff]">
+        <div className="flex flex-col justify-between gap-[8rem] items-center w-1/5 p-4 py-10 bg-[#3795e5]">
           <div className="flex flex-col gap-3">
             <TabButton
               label="Dashboard"
@@ -90,7 +84,7 @@ const Dashboard = () => {
         </div>
 
         <div className="flex-grow">
-          {isLoading && <LoadingAnimation />} {/* Show loading animation when isLoading is true */}
+          {isLoading && <Loading />} 
           {activeTab === 1 && !isLoading && <p>Home</p>}
           {activeTab === 2 && !isLoading && <p>Operations</p>}
           {activeTab === 3 && !isLoading && <p>Finance</p>}
