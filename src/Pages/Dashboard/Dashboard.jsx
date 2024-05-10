@@ -5,7 +5,9 @@ import {
   faCog,
   faFile,
   faHouse,
+  faMessage,
   faPencil,
+  faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import StudentHeader from './Components/StudentHeader';
 import Loading from '../../Components/Loading';
@@ -95,6 +97,21 @@ const Dashboard = () => {
               subButtons={[
                 { label: 'View Assignment', tabNumber: 7 },
                 { label: 'Submit Assignment', tabNumber: 8 },
+              ]}
+            />
+            <TabButton
+              label="Tutors"
+              icon={faUser}
+              subButtons={[
+                { label: 'My Tutors', tabNumber: 9 },
+                { label: 'Manage Tutors', tabNumber: 10 },
+              ]}
+            />
+            <TabButton
+              label="Messaging"
+              icon={faMessage}
+              subButtons={[
+                { label: 'View Messages', tabNumber: 11 },
               ]}
             />
           </div>
