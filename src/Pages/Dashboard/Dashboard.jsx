@@ -3,6 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChartBar,
   faCog,
+  faFile,
+  faHouse,
+  faPencil,
 } from '@fortawesome/free-solid-svg-icons';
 import StudentHeader from './Components/StudentHeader';
 import Loading from '../../Components/Loading';
@@ -20,9 +23,9 @@ const Dashboard = () => {
   const TabButton = ({ tabNumber, label, icon, subButtons }) => (
     <div className="">
       <button
-        className={`${
+        className={` text-white bg-[#1f70b2] border-[#48a3ee] border ${
           selectedButton === label
-            ? ' text-white bg-[#1f70b2]'
+            ? ' text-white bg-[#1f70b2] '
             : ' text-[#013A57]'
         } py-3 hover:bg-[#013A57] hover:text-white text-black px-5 font-semibold w-[200px] flex items-center justify-between gap-2 focus:outline-none focus:shadow-outline`}
         onClick={() => {
@@ -41,7 +44,7 @@ const Dashboard = () => {
           {subButtons.map((subButton) => (
             <button
               key={subButton.label}
-              className={`w-[190px] text-left flex ml-2 py-2 px-4 bg-[#2290eb] text-white border border-[#48a3ee] ${
+              className={`w-full items-center justify-center flex py-2 px-4 bg-[#2290eb] text-white border border-[#48a3ee] ${
                 activeTab === subButton.tabNumber
                   ? 'bg-[#1d7fcf]'
                   : ''
@@ -67,14 +70,31 @@ const Dashboard = () => {
       <StudentHeader/>
       <div className="flex overflow-hidden">
         <div className="flex flex-col justify-between gap-[8rem] items-center w-1/5 p-4 py-10 bg-[#3795e5]">
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col">
             <TabButton
               label="Dashboard"
-              icon={faChartBar}
+              icon={faHouse}
               subButtons={[
                 { label: 'Overview', tabNumber: 1 },
-                { label: 'Operations', tabNumber: 2 },
-                { label: 'Finance', tabNumber: 3 },
+                { label: 'Progress Tracker', tabNumber: 2 },
+                { label: 'Notifications', tabNumber: 3 },
+              ]}
+            />
+            <TabButton
+              label="Class"
+              icon={faPencil}
+              subButtons={[
+                { label: 'My Classes', tabNumber: 4 },
+                { label: 'Upcoming Classes', tabNumber: 5 },
+                { label: 'Reschedule', tabNumber: 6 },
+              ]}
+            />
+            <TabButton
+              label="Assignments"
+              icon={faFile}
+              subButtons={[
+                { label: 'View Assignment', tabNumber: 7 },
+                { label: 'Submit Assignment', tabNumber: 8 },
               ]}
             />
           </div>
