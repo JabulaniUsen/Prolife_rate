@@ -10,21 +10,21 @@ const UpcomingClasses = () => {
         {subject: 'Mathematics', date: 'Monday, April 10th', time: '3:00 PM - 4:30 PM', daysLeft: '10days' },
     ]
   return (
-    <div className='w-[500px]'>
+    <div className='lg:w-[500px] w-[100%]'>
         <div className="head text-xl font-semibold">
             Upcoming Classes
         </div>
         <div className="body">
             <ul className="list flex flex-col gap-2 py-4">
                 {classesData.map((item, index) => (
-                    <li key={index} className='flex justify-between items-center border-b-[1px] border-gray-300 py-3'>
+                    <li key={index} className='flex justify-between items-center flex-wrap border-b-[1px] border-gray-300 py-3 gap-y-2'>
                         <img src={user} alt="" />
                         <div className="flex flex-col">
                             <p className='font-semibold'>{item.subject}</p>
-                            <p className='font-semibold text-sm'>{item.date}</p>
+                            <p className='font-semibold lg:text-sm text-xs'>{item.date}</p>
                         </div>
-                        <div className="time text-gray-600 text-sm mb-[-30px]">{item.time}</div>
-                        <p className='bg-[#e9e7e7] px-3 py-2 text-sm rounded-2xl flex items-center gap-3'>
+                        <div className="time text-gray-600 lg:text-sm text-xs lg:mb-[-25px] mb-[-20px]">{item.time}</div>
+                        <p className='bg-[#e9e7e7] lg:px-3 px-2 lg:py-2 py-[0.3rem] text-xs lg:rounded-2xl rounded-lg flex items-center lg:gap-3 gap-1'>
                             <p>{item.daysLeft}</p>
                             <img src={back} alt="" />
                         </p>

@@ -10,7 +10,7 @@ const AssignmentsOverview = () => {
         {subject: 'Science', topic: 'Biological Benefits', date: '04 May, 09:20 AM'},
     ]
   return (
-    <div className='lg:mr-[100px]'>
+    <div className='lg:mr-[100px] w-[100%] lg:w-fit'>
         <div className="flex justify-between items-center mb-5">
             <p className='head text-xl font-semibold'>Assignments</p>
             <p className='text-blue-700 cursor-pointer'>See all</p>
@@ -18,7 +18,7 @@ const AssignmentsOverview = () => {
         <div className="body">
             <ul className="space-y-2">
                 {assignmentData.map((item, index) => (
-                    <li key={index} className='flex justify-between gap-8 items-center border-b-[1px] border-gray-300 py-3'>
+                    <li key={index} className='flex  gap-8 items-center border-b-[1px] border-gray-300 py-3'>
                         <FontAwesomeIcon icon={faFile} className='text-[#0052B4]' />
                         <div className="flex flex-col">
                             <p>{item.subject} | {item.topic}</p>

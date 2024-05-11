@@ -11,7 +11,7 @@ const StudentHeader = () => {
             <img src={logo} className='w-[120px] ml-10 lg:ml-0' alt="" />
         </div>
         <div className="flex items-center gap-10">
-            <div className="border border-gray-400 rounded-full lg:w-[350px] md:w-[200px] hidden p-2 flex items-center gap-3">
+            <div className="border border-gray-400 rounded-full lg:w-[350px] md:w-[200px] hidden p-2 lg:flex items-center gap-3">
                 <FontAwesomeIcon icon={faMagnifyingGlass} className='text-gray-400'/>
                 <input type="text" className='outline-none w-full' placeholder='Search' />
             </div>

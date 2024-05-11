@@ -8,7 +8,7 @@ const Messages = () => {
         {messageName: 'Guy Hawkins', initial: 'GH', message: 'Hello, Mr John I am yet to get your class b report form', time: '10:25am'},
     ]
   return (
-    <div className=''>
+    <div className=' w-[100%] lg:w-fit'>
         <div className="flex justify-between items-center mb-7">
             <p className='head text-xl font-semibold'>Assignments</p>
             <p className='text-blue-700 cursor-pointer'>See all</p>

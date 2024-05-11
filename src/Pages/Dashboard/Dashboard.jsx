@@ -4,6 +4,7 @@ import { faBars, faAngleRight, faHouse, faPencil, faFile, faUser, faMessage, faC
 import StudentHeader from './Components/StudentHeader';
 import Loading from '../../Components/Loading';
 import Home from './Tabs/Home';
+import { faSignalMessenger } from '@fortawesome/free-brands-svg-icons';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -17,11 +18,11 @@ const Dashboard = () => {
   };
 
   const TabButton = ({ label, icon, subButtons }) => (
-    <div className="">
+    <div className="poppins">
       <button
         className={`text-white bg-[#1f70b2] border-[#48a3ee] border ${
           selectedButton === label ? 'text-white bg-[#1f70b2]' : 'text-[#013A57]'
-        } py-3 hover:bg-[#013A57] hover:text-white text-black px-5 font-semibold w-[200px] flex items-center justify-between gap-2 focus:outline-none focus:shadow-outline`}
+        } py-3 hover:bg-[#013A57] hover:text-white text-black px-5 font-semibold lg:w-[200px] w-[160px] lg:text-base text-sm flex items-center justify-between gap-2 focus:outline-none focus:shadow-outline`}
         onClick={() => {
           setSelectedButton(label);
           setActiveTab(1);
@@ -39,8 +40,8 @@ const Dashboard = () => {
           {subButtons.map((subButton) => (
             <button
               key={subButton.label}
-              className={`w-full items-center justify-center flex py-2 px-4 bg-[#2290eb] text-white border border-[#48a3ee] ${
-                activeTab === subButton.tabNumber ? 'bg-[#1d7fcf]' : ''
+              className={`lg:w-full items-center justify-center flex py-2 px-4 bg-[#2290eb] hover:bg-[#1a71b956] w-[160px] lg:text-base text-xs text-white border border-[#48a3ee] ${
+                activeTab === subButton.tabNumber ? 'bg-[#1a72b9]' : ''
               }`}
               onClick={() => {
                 setIsLoading(true);
@@ -74,10 +75,9 @@ const Dashboard = () => {
         <div
           className={`${
             isMenuOpen ? 'translate-x-0' : '-translate-x-full'
-          } transition-transform duration-300 ease-in-out fixed left-0 top-0 z-40 flex flex-col justify-between gap-[8rem] items-center w-1/2 p-4 py-10 bg-[#3795e5] h-full overflow-y-auto`}
+          } mobileResponsiveness transition-transform duration-300 ease-in-out fixed left-0 top-0 z-40 flex flex-col justify-between shadow-inner gap-[8rem] items-center w-[50%] p-4 py-10 bg-[#3795e5] h-full overflow-y-auto`}
         >
           <div className="flex flex-col">
-            {/* Menu buttons */}
             <div className="my-10">
               <TabButton
                 label="Dashboard"
@@ -129,6 +129,15 @@ const Dashboard = () => {
                 { label: 'View Messages', tabNumber: 11 },
               ]}
             />
+            <div className="my-10">
+              <TabButton
+                label="Feedback"
+                icon={faSignalMessenger}
+                subButtons={[
+                  { label: 'View Messages', tabNumber: 11 },
+                ]}
+              />
+            </div>
           </div>
           <div className="flex flex-col gap-3">
             <TabButton label="Settings" icon={faCog} subButtons={[]} />
@@ -139,7 +148,7 @@ const Dashboard = () => {
         {/* ///////////////////////////// */}
 
 
-        <div className="lg:flex hidden flex-col justify-between gap-[8rem] items-center w-1/5 p-4 py-10 bg-[#3795e5]">
+        <div className="lg:flex hidden flex-col justify-between shadow-inner gap-[8rem] items-center w-1/5 p-4 py-10 bg-[#3795e5]">
           <div className="flex flex-col">
             <div className="my-10">
               <TabButton
@@ -192,6 +201,15 @@ const Dashboard = () => {
                 { label: 'View Messages', tabNumber: 11 },
               ]}
             />
+            <div className="my-10">
+              <TabButton
+                label="Feedback"
+                icon={faSignalMessenger}
+                subButtons={[
+                  { label: 'View Messages', tabNumber: 11 },
+                ]}
+              />
+            </div>
           </div>
           <div className="flex flex-col gap-3">
             <TabButton label="Settings" icon={faCog} subButtons={[]} />

@@ -10,7 +10,7 @@ function ClasseAttendant() {
     ]
 
   return (
-    <div>
+    <div className=' w-[100%] lg:w-fit'>
         <div className="head text-xl font-semibold mb-7">
             Monthly Class Attendance
         </div>
