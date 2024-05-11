@@ -3,8 +3,8 @@ import loadingGif from '../Assets/tenor.gif'
 
 const Loading = () => {
   return (
-    <div className='bg-[#00000067] absolute h-full w-full flex items-center justify-center m-auto'>
-        <img src={loadingGif} alt="Loading" />
+    <div className='absolute h-full w-full flex items-center justify-center m-auto'>
+        <img src={loadingGif} className='lg:ml-[-450px] w-[200px] mt-[-100px]' alt="Loading" />
     </div>
   )
 }

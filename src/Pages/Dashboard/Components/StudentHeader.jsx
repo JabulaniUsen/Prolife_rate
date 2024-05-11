@@ -6,7 +6,7 @@ import { faBell, faEnvelope, faGear, faMagnifyingGlass, faMessage } from '@forta
 
 const StudentHeader = () => {
   return (
-    <div className='py-10 px-10 flex justify-between'>
+    <div className='py-7 px-10 flex justify-between'>
         <div className="">
             <img src={logo} className='w-[150px]' alt="" />
         </div>

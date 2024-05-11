@@ -11,6 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import StudentHeader from './Components/StudentHeader';
 import Loading from '../../Components/Loading';
+import Home from './Tabs/Home';
 
 
 const Dashboard = () => {
@@ -56,7 +57,7 @@ const Dashboard = () => {
                 setTimeout(() => {
                   setActiveTab(subButton.tabNumber);
                   setIsLoading(false);
-                }, 1000);
+                }, 1500);
               }}
             >
               {subButton.label}
@@ -122,7 +123,7 @@ const Dashboard = () => {
 
         <div className="flex-grow">
           {isLoading && <Loading />} 
-          {activeTab === 1 && !isLoading && <p>Home</p>}
+          {activeTab === 1 && !isLoading && <Home/>}
           {activeTab === 2 && !isLoading && <p>Operations</p>}
           {activeTab === 3 && !isLoading && <p>Finance</p>}
         </div>
