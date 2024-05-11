@@ -23,7 +23,7 @@ function AcademicDetails({ onNext, onBack }) {
   });
 
   return (
-    <div className=''>
+    <form className=''>
       <div className="lg:w-[80%] m-auto border flex flex-col border-gray-400 rounded-xl px-12 py-8 pb-[4rem] poppins">
         <h2 className='text-center lg:w-[700px] m-auto mb-16'>
           Please enter the name of your school, college, or university, along with your grade or year of study. 
@@ -33,7 +33,7 @@ function AcademicDetails({ onNext, onBack }) {
           <div className="flex flex-col">
             <label className='text-base font-semibold'>Grade/Year:</label>
             <div className="border border-gray-300 bg-white p-3 rounded-lg">
-              <input type="text" name="gradeYear" value={formik.values.gradeYear} onChange={formik.handleChange} onBlur={formik.handleBlur} className='w-full' placeholder='Grade/Year' />
+              <input required type="text" name="gradeYear" value={formik.values.gradeYear} onChange={formik.handleChange} onBlur={formik.handleBlur} className='w-full' placeholder='Grade/Year' />
             </div>
               {formik.touched.gradeYear && formik.errors.gradeYear ? <div className="text-red-500 ml-3">{formik.errors.gradeYear}</div> : null}
           </div>
@@ -67,7 +67,7 @@ function AcademicDetails({ onNext, onBack }) {
           <div className="flex flex-col">
             <label className='text-base font-semibold'>Current Location:</label>
             <div className="border border-gray-300 bg-white p-3 rounded-lg">
-              <input type="text" name="currentLocation" value={formik.values.currentLocation} onChange={formik.handleChange} onBlur={formik.handleBlur} className='w-full' placeholder='Current Location' />
+              <input required type="text" name="currentLocation" value={formik.values.currentLocation} onChange={formik.handleChange} onBlur={formik.handleBlur} className='w-full' placeholder='Current Location' />
             </div>
               {formik.touched.currentLocation && formik.errors.currentLocation ? <div className="text-red-500 ml-3">{formik.errors.currentLocation}</div> : null}
           </div>
@@ -75,9 +75,9 @@ function AcademicDetails({ onNext, onBack }) {
       </div>
       <div className="flex items-end justify-between lg:w-[80%] m-auto border border-gray-400 rounded-xl px-12 py-5 lg:mt-5 mt-2 poppins">
         <button className=' flex border border-[#1f70b2] text-[#1f70b2] hover:bg-[#1f70b2] transition-all hover:text-white font-semibold px-10 py-2 rounded' onClick={onBack}>Back</button>
-        <button type="submit" onClick={formik.handleSubmit} disabled={!formik.isValid} className=' flex bg-[#1f70b2] text-white font-semibold px-10 py-2 rounded'>Next</button>
+        <button type="submit" onClick={formik.handleSubmit} className=' flex bg-[#1f70b2] text-white font-semibold px-10 py-2 rounded'>Next</button>
       </div>
-    </div>
+    </form>
   );
 }
 

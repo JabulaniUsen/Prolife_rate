@@ -17,13 +17,14 @@ const Dashboard = () => {
     setActiveTab(tabNumber);
     setIsMenuOpen(false);
   };
+  
 
   const TabButton = ({ label, icon, subButtons }) => (
-    <div className="poppins">
+    <div className="">
       <button
         className={`text-white bg-[#1f70b2] border-[#48a3ee] border ${
           selectedButton === label ? 'text-white bg-[#1f70b2]' : 'text-[#013A57]'
-        } py-3 hover:bg-[#013A57] hover:text-white text-black px-5 font-semibold lg:w-[200px] w-[160px] lg:text-base text-sm flex items-center justify-between gap-2 focus:outline-none focus:shadow-outline`}
+        } py-3 hover:bg-[#013A57] hover:text-white text-black px-5 font-semibold w-[200px] flex items-center justify-between gap-2 focus:outline-none focus:shadow-outline`}
         onClick={() => {
           setSelectedButton(label);
           setActiveTab(1);
@@ -35,16 +36,17 @@ const Dashboard = () => {
         </div>
         <FontAwesomeIcon icon={faAngleRight} />
       </button>
-
+  
       {selectedButton === label && (
         <div className="top-full left-0 text-black ">
           {subButtons.map((subButton) => (
             <button
               key={subButton.label}
-              className={`lg:w-full items-center justify-center flex py-2 px-4 bg-[#2290eb] hover:bg-[#1a71b956] w-[160px] lg:text-base text-xs text-white border border-[#48a3ee] ${
-                activeTab === subButton.tabNumber ? 'bg-[#1a72b9]' : ''
+              className={`w-full items-center justify-center flex py-2 px-4 bg-[#2290eb] text-white border border-[#48a3ee] ${
+                activeTab === subButton.tabNumber ? 'bg-[#1d7fcf]' : ''
               }`}
               onClick={() => {
+                handleTabSwitch(subButton.tabNumber); // Call handleTabSwitch here
                 setIsLoading(true);
                 setTimeout(() => {
                   setActiveTab(subButton.tabNumber);
@@ -59,6 +61,7 @@ const Dashboard = () => {
       )}
     </div>
   );
+  
 
   return (
     <div className="">
