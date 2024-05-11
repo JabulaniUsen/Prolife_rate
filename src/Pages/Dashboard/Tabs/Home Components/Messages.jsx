@@ -16,7 +16,7 @@ const Messages = () => {
         <div className="body">
             <ul className="space-y-2">
                 {messageData.map((item, index) => (
-                    <li key={index} className='flex justify-between gap-2 items-center border-b-[1px] border-gray-300 py-3'>
+                    <li key={index} className='flex justify-between gap-2  border-b-[1px] border-gray-300 py-3'>
                         <div className="flex items-center gap-3">
                             <span className='p-3 bg-[#F0F7FF] rounded-xl text-[#0052ba] font-semibold'>{item.initial}</span>
                             <div className="flex flex-col">

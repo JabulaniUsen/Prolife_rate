@@ -3,6 +3,7 @@ import UpcomingClasses from './Home Components/UpcomingClasses'
 import AssignmentsOverview from './Home Components/AssignmentsOverview'
 import MyTutor from './Home Components/MyTutor'
 import Messages from './Home Components/Messages'
+import ClasseAttendant from './Home Components/ClasseAttendant'
 
 
 function Home() {
@@ -18,6 +19,7 @@ function Home() {
         <AssignmentsOverview/>
         <MyTutor/>
         <Messages/>
+        <ClasseAttendant/>
       </div>
     </div>
   )
