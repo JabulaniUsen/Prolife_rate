@@ -2,6 +2,7 @@ import React from 'react'
 import UpcomingClasses from './Home Components/UpcomingClasses'
 import AssignmentsOverview from './Home Components/AssignmentsOverview'
 import MyTutor from './Home Components/MyTutor'
+import Messages from './Home Components/Messages'
 
 
 function Home() {
@@ -16,6 +17,7 @@ function Home() {
         <UpcomingClasses/>
         <AssignmentsOverview/>
         <MyTutor/>
+        <Messages/>
       </div>
     </div>
   )
