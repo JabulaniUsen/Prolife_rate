@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faAngleRight, faHouse, faPencil, faFile, faUser, faMessage, faCreditCard, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faAngleRight, faHouse, faPencil, faFile, faUser, faMessage, faCreditCard, faCog, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import StudentHeader from './Components/StudentHeader';
 import Loading from '../../Components/Loading';
 import Home from './Tabs/Home';
 import { faSignalMessenger } from '@fortawesome/free-brands-svg-icons';
+import refer from '../../Assets/refer.svg'
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -14,7 +15,7 @@ const Dashboard = () => {
 
   const handleTabSwitch = (tabNumber) => {
     setActiveTab(tabNumber);
-    setIsMenuOpen(false); // Close the menu when switching tabs
+    setIsMenuOpen(false);
   };
 
   const TabButton = ({ label, icon, subButtons }) => (
@@ -139,8 +140,13 @@ const Dashboard = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col items-center justify-center">
             <TabButton label="Settings" icon={faCog} subButtons={[]} />
+            <TabButton label="Logout" icon={faSignOut} subButtons={[]} />
+            <div className="">
+              <img src={refer} alt="" className='w-[200px] mb-[-50px]' />
+              <button className='text-white bg-[#186bad] rounded-md py-3 hover:bg-[#013A57] px-5 font-semibold lg:w-[200px] w-[160px] lg:text-lg text-sm items-center'>Refer & Earn</button>
+            </div>
           </div>
         </div>
 
@@ -211,16 +217,21 @@ const Dashboard = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col items-center justify-center">
             <TabButton label="Settings" icon={faCog} subButtons={[]} />
+            <TabButton label="Logout" icon={faSignOut} subButtons={[]} />
+            <div className="">
+              <img src={refer} alt="" className='w-[200px] mb-[-50px]' />
+              <button className='text-white bg-[#186bad] rounded-md py-3 hover:bg-[#013A57] px-5 font-semibold lg:w-[200px] w-[160px] lg:text-lg text-sm items-center'>Refer & Earn</button>
+            </div>
           </div>
         </div>
 
         <div className="flex-grow">
           {isLoading && <Loading />}
           {activeTab === 1 && !isLoading && <Home />}
-          {activeTab === 2 && !isLoading && <p>Operations</p>}
-          {activeTab === 3 && !isLoading && <p>Finance</p>}
+          {activeTab === 2 && !isLoading && <p>Progress Tracker</p>}
+          {activeTab === 3 && !isLoading && <p>Notifications</p>}
         </div>
       </div>
     </div>
