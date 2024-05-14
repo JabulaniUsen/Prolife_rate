@@ -6,6 +6,7 @@ import Loading from '../../Components/Loading';
 import Home from './Tabs/Home';
 import { faSignalMessenger } from '@fortawesome/free-brands-svg-icons';
 import refer from '../../Assets/refer.svg'
+import ProgressTracker from './Tabs/ProgressTracker';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -233,7 +234,7 @@ const Dashboard = () => {
         <div className="flex-grow">
           {isLoading && <Loading />}
           {activeTab === 1 && !isLoading && <Home />}
-          {activeTab === 2 && !isLoading && <p>Progress Tracker</p>}
+          {activeTab === 2 && !isLoading && <ProgressTracker/>}
           {activeTab === 3 && !isLoading && <p>Notifications</p>}
         </div>
       </div>
